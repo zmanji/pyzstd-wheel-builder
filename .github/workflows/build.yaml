@@ -37,4 +37,3 @@ jobs:
           name: Release ${{ steps.tag_version.outputs.new_tag }}
           files: |
             ./out/*
-
