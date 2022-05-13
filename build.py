@@ -43,8 +43,8 @@ def main():
     os.chdir(old)
 
 
-    out = Path("./out", exist_ok=True)
-    out.mkdir()
+    out = Path("./out")
+    out.mkdir(exist_ok=True)
 
     shutil.copytree(srcdir + "/dist", "./out" ,dirs_exist_ok=True)
 
