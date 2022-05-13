@@ -25,7 +25,7 @@ def main():
 
     python = os.path.abspath("./venv/bin/python3")
 
-    os.chdir(f"/src/pyzstd-{VERSION}")
+    os.chdir(f"./src/pyzstd-{VERSION}")
 
 
     d = datetime.now()
