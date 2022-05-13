@@ -26,7 +26,7 @@ def main():
 
     python = os.path.abspath("./venv/bin/python3")
 
-    old = os.getpwd()
+    old = os.getcwd()
 
     srcdir = f"./src/pyzstd-{VERSION}"
 
