@@ -30,7 +30,7 @@ def main():
 
     d = datetime.now()
 
-    subprocess.run([python, "./setup.py", "bdist_wheel", "-dynamic-link-zstd", "--build-number", d.isoformat(timespec='minutes')], check=True, env={'SOURCE_DATE_EPOCH': "315532800", "CFLAGS": "-g0 -march=x86-64-v3 -O3"})
+    subprocess.run([python, "./setup.py", "bdist_wheel", "--dynamic-link-zstd", "--build-number", d.isoformat(timespec='minutes')], check=True, env={'SOURCE_DATE_EPOCH': "315532800", "CFLAGS": "-g0 -march=x86-64-v3 -O3"})
 
 
 if __name__ == '__main__':
