@@ -6,6 +6,7 @@ import venv
 import subprocess
 import shutil
 import tarfile
+from pathlib import Path
 
 VERSION = "0.15.2"
 
@@ -25,7 +26,11 @@ def main():
 
     python = os.path.abspath("./venv/bin/python3")
 
-    os.chdir(f"./src/pyzstd-{VERSION}")
+    old = os.getpwd()
+
+    srcdir = f"./src/pyzstd-{VERSION}"
+
+    os.chdir(srcdir)
 
 
     d = datetime.now()
@@ -34,6 +39,14 @@ def main():
     e["CFLAGS"] = "-g0 -march=x86-64-v3 -O3"
 
     subprocess.run([python, "./setup.py", "bdist_wheel", "--dynamic-link-zstd", "--build-number", d.isoformat(timespec='minutes')], check=True, env=e)
+
+    os.chdir(old)
+
+
+    out = Path("./out", exist_ok=True)
+    out.mkdir()
+
+    shutil.copytree(srcdir + "/dist", "./out" ,dirs_exist_ok=True)
 
 
 if __name__ == '__main__':

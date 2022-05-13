@@ -21,6 +21,9 @@ jobs:
       - run: sudo apt install -y wget build-essential binutils
       - run: wget https://github.com/animalize/pyzstd/archive/refs/tags/0.15.2.tar.gz
 
+      - run: python3.8 ./build.py
       - run: python3.9 ./build.py
+      - run: python3.10 ./build.py
+      - run: rm -rf ./venv ./src
       - run: sudo apt install -y tree
       - run: tree .
