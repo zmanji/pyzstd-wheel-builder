@@ -35,12 +35,13 @@ def main():
 
     d = datetime.now()
     d = d.isoformat(timespec='minutes')
-    d = d.replace('-', '_')
-    d = d.replace(':', '_')
+    d = d.replace("-", "_")
+    d = d.replace(":", "_")
 
     e = os.environ.copy()
     e['SOURCE_DATE_EPOCH'] = "315532800"
     e["CFLAGS"] = "-g0 -march=x86-64-v3 -O3"
+    # TODO(zmanji): empty rpath
 
     subprocess.run([python, "./setup.py", "bdist_wheel", "--dynamic-link-zstd", "--build-number", d], check=True, env=e)
 
