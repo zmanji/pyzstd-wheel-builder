@@ -2,7 +2,7 @@
 
 import venv
 import subprocess
-import shututil
+import shutil
 import tarfile
 
 def main():
@@ -24,5 +24,5 @@ def run(args):
     subprocess.run(args, check=True)
 
 
-if __name__ '__main__':
+if __name__ == '__main__':
     main()
