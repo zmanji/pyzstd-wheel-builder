@@ -34,7 +34,7 @@ def main():
 
 
     d = datetime.now()
-    d.isoformat(timespec='minutes')
+    d = d.isoformat(timespec='minutes')
     d = d.replace('-', '_')
     d = d.replace(':', '_')
 
