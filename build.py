@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import datetime
+from datetime import datetime
 import os
 import venv
 import subprocess
