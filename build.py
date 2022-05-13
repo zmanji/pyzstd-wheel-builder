@@ -42,7 +42,7 @@ def main():
     e['SOURCE_DATE_EPOCH'] = "315532800"
     e["CFLAGS"] = "-g0 -march=x86-64-v3 -O3"
 
-    subprocess.run([python, "./setup.py", "bdist_ext", "--dynamic-link-zstd"], check=True, env=e)
+    subprocess.run([python, "./setup.py", "build_ext", "--dynamic-link-zstd"], check=True, env=e)
 
     dlibs = list(Path(".").glob("build/**/*.so"))
     for d in dlibs:
