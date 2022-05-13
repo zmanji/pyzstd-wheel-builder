@@ -18,7 +18,7 @@ jobs:
         with:
           python-version: '3.10'
 
-      - run: sudo apt install wget
+      - run: sudo apt install -y wget build-essential
       - run: wget https://github.com/animalize/pyzstd/archive/refs/tags/0.15.2.tar.gz
 
       - run: python3.9 ./build.py
