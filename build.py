@@ -32,12 +32,6 @@ def main():
 
     os.chdir(srcdir)
 
-
-    d = datetime.now()
-    d = d.isoformat(timespec='minutes')
-    d = d.replace("-", "_")
-    d = d.replace(":", "_")
-
     e = os.environ.copy()
     e['SOURCE_DATE_EPOCH'] = "315532800"
     e["CFLAGS"] = "-g0 -march=x86-64-v3 -O3"
@@ -48,7 +42,7 @@ def main():
     for l in dlibs:
         subprocess.run(["patchelf", "--remove-rpath", str(l)], check=True, env=e)
 
-    subprocess.run([python, "./setup.py", "bdist_wheel", "--dynamic-link-zstd", "--build-number", d], check=True, env=e)
+    subprocess.run([python, "./setup.py", "bdist_wheel", "--dynamic-link-zstd"], check=True, env=e)
 
     os.chdir(old)
 
