@@ -42,7 +42,8 @@ def main():
     for l in dlibs:
         subprocess.run(["patchelf", "--remove-rpath", str(l)], check=True, env=e)
 
-    subprocess.run([python, "./setup.py", "bdist_wheel", "--dynamic-link-zstd"], check=True, env=e)
+    # Always set a build number to be higher version than pypi
+    subprocess.run([python, "./setup.py", "bdist_wheel", "--dynamic-link-zstd", "--build-number", "1"], check=True, env=e)
 
     os.chdir(old)
 
