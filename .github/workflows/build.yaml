@@ -35,3 +35,13 @@ jobs:
           name: Release ${{ steps.tag_version.outputs.new_tag }}
           files: |
             ./out/*
+      - run: ./make-index.py 
+        env:
+          NEW_TAG: ${{ steps.tag_version.outputs.new_tag }}
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Deploy Index Page
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
