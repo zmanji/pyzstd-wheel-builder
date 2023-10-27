@@ -17,7 +17,7 @@ def main():
             )
 
     builder.create("./venv")
-    subprocess.run(["./venv/bin/pip", "install", "-U", "wheel==0.37.1", "pip==22.0.4", "setuptools==62.2.0"], check=True)
+    subprocess.run(["./venv/bin/pip", "install", "-U", "wheel==0.41.2", "pip==23.3.1", "setuptools==68.2.2"], check=True)
 
     shutil.rmtree("./src", ignore_errors=True)
     tf = tarfile.open(name=f"./{VERSION}.tar.gz")
